@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أهنئك بعيد الفطر المبارك</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>عيد فطر سعيد!</h1>
+        <p>أهنئك بعيد الفطر المبارك يا <span id="username">صديقي</span>، أعاده الله عليك بالخير واليمن والبركات.</p>
+        <img src="assets/eid.png" alt="عيد فطر سعيد">
+        <div class="buttons">
+            <a id="whatsapp" href="#" target="_blank">شارك التهنئة على واتساب</a>
+            <a id="facebook" href="#" target="_blank">شارك التهنئة على فيسبوك</a>
+        </div>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        if(name) {
+            document.getElementById("username").innerText = name;
+            document.getElementById("whatsapp").href = "https://wa.me/?text=" + encodeURIComponent("عيد فطر سعيد عليك وعلى أسرتك يا " + name + " 🌙✨ https://your-link");
+            document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u=https://your-link";
+        }
+    </script>
+</body>
+</html>
